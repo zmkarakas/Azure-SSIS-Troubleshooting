@@ -1,6 +1,6 @@
 ## User Errors in Azure-SSIS integration
 
-As the documentation suggests, UserErrors can be either Vnet,network related issues, SQL DB related, or custom setup (script) related. UserErrors stem from user side and are not related to Azure.
+As the documentation suggests, SSIS-IR UserErrors can be either Vnet,network related issues, SQL DB related, or custom setup (script) related. UserErrors stem from user side and are not related to Azure. UserErrors stemming from SSIS package failures are however, different.
 
 Vnet, networking related issues are very common, as many users fail to setup the rather complicated networking configurations required by standard VNet injection of SSIS IR. You might get an error such as MisconfiguredDnsServerOrNsgSettings, or Forbidden. In the former case, you are setting up either DNS or NSG incorrectly, but also UDR should be taken into account. One important thing is not to forget to separate IR and sql db into different subnets in the Vnet, and making sure an NSG is both configured for these subnets (setting up one NSG is not enough, as both sides need to be able to communicate).
 
