@@ -4,7 +4,7 @@ As the documentation suggests, SSIS-IR UserErrors can be either Vnet,network rel
 
 Vnet, networking related issues are very common, as many users fail to setup the rather complicated networking configurations required by standard VNet injection of SSIS IR(Integration Runtime). That is, by the way, why express Vnet injection is preferred by some. You might get an error such as MisconfiguredDnsServerOrNsgSettings, or Forbidden. In the former case, you are setting up either DNS or NSG incorrectly, but also UDR should be taken into account. One important thing is not to forget to separate IR and sql db into different subnets in the Vnet, and making sure an NSG is both configured for these subnets (setting up one NSG is not enough, as both sides need to be able to communicate).
 
-CustomSetupScriptFailure is quite common, as it is easy to make a mistake and mess up this process. This error can have subcodes indicating their cause such as CustomSetupScriptBlobContainerInaccessible and CustomSetupScriptExecutionFailure. Since custom scripts are long and complicated, testing is required if the suggestion of the error message is not helpful.
+CustomSetupScriptFailure is quite common, as it is easy to make a mistake and mess up this process. This error can have subcodes indicating their cause such as CustomSetupScriptBlobContainerInaccessible and CustomSetupScriptExecutionFailure. Since custom scripts tend to be long and complicated, testing is required if the suggestion of the error message is not helpful.
 
 DB related errors are either a message suggesting a network problem, a timeout, or a catalog related subcode such as CatalogDbAlreadyExist or CatalogDbCreationFailure.
 
